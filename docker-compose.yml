@@ -1,0 +1,25 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:11
+    expose:
+      - 5433
+    ports:
+      - "5433:5433"
+    networks:
+      - app
+    environment:
+      - POSTGRES_PASSWORD=parcom
+    restart: on-failure
+  pc-classroom:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8081:8081"
+    networks:
+      - app
+    depends_on:
+      - postgres
+networks:
+  app:
