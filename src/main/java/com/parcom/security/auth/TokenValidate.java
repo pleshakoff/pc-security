@@ -1,4 +1,4 @@
-package com.parcom.security.security;
+package com.parcom.security.auth;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;

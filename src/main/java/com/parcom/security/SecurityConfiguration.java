@@ -1,9 +1,9 @@
 package com.parcom.security;
 
 
-import com.parcom.security.security.AuthenticationTokenProcessingFilter;
-import com.parcom.security.security.UnauthorizedEntryPoint;
-import com.parcom.security.security.UserDetailsServiceDB;
+import com.parcom.security.auth.AuthenticationTokenProcessingFilter;
+import com.parcom.security.auth.UnauthorizedEntryPoint;
+import com.parcom.security.auth.UserDetailsServiceDB;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

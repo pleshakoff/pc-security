@@ -1,9 +1,9 @@
-package com.parcom.security.security;
+package com.parcom.security.auth;
 
 import com.parcom.security.model.user.TokenResource;
 import com.parcom.security.model.user.User;
-import com.parcom.security.security.dto.UserAuthDto;
-import com.parcom.security.security.dto.UserRegisterDto;
+import com.parcom.security.auth.dto.UserAuthDto;
+import com.parcom.security.auth.dto.UserRegisterDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +39,7 @@ public class AuthController {
 
     @PostMapping(value = "/register/")
     @ApiOperation("Member of the parental committee registration")
-    public User registerMember(@Valid UserRegisterDto registerDto,
+    public User registerMember(@Valid @RequestBody UserRegisterDto registerDto,
                                BindingResult bindingResult) throws BindException {
         if (bindingResult.hasErrors()) {
             throw new BindException(bindingResult);

@@ -1,4 +1,4 @@
-package com.parcom.security.security.dto;
+package com.parcom.security.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.parcom.security.security;
+package com.parcom.security.auth;
 
 import com.parcom.security.model.user.User;
 import org.springframework.security.core.GrantedAuthority;

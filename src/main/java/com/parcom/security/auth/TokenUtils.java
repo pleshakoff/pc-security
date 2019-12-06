@@ -1,4 +1,4 @@
-package com.parcom.security.security;
+package com.parcom.security.auth;
 
 public class TokenUtils {
     protected static final String MAGIC_KEY = "MdDQkHksRA4Vq%A9fqVPT*Qnn9^dDyn8K";

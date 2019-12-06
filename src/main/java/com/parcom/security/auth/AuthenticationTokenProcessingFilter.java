@@ -1,4 +1,4 @@
-package com.parcom.security.security;
+package com.parcom.security.auth;
 
 import com.parcom.security.exceptions.ExceptionResource;
 import com.parcom.security.exceptions.GlobalDefaultExceptionHandler;

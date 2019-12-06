@@ -1,10 +1,10 @@
-package com.parcom.security.security;
+package com.parcom.security.auth;
 
 import com.parcom.security.model.user.TokenResource;
 import com.parcom.security.model.user.User;
 import com.parcom.security.model.user.UserRepository;
-import com.parcom.security.security.dto.UserAuthDto;
-import com.parcom.security.security.dto.UserRegisterDto;
+import com.parcom.security.auth.dto.UserAuthDto;
+import com.parcom.security.auth.dto.UserRegisterDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

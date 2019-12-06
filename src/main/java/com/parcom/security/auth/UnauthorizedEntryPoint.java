@@ -1,4 +1,4 @@
-package com.parcom.security.security;
+package com.parcom.security.auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;

@@ -22,8 +22,8 @@ import java.util.Arrays;
 public class SecurityApplication {
 
 
-//	docker run --name security_pg -e POSTGRES_PASSWORD=parcom -d -p 5433:5432 postgres:11//  docker image build -t pleshakoff/pc-security:hw1 .
-//  docker image push pleshakoff/pc-security:hw1
+//	docker run --name security_pg -e POSTGRES_PASSWORD=parcom -d -p 5433:5432 postgres:11//  docker image build -t pleshakoff/pc-auth:hw1 .
+//  docker image push pleshakoff/pc-auth:hw1
 	public static void main(String[] args) {
 		SpringApplication.run(SecurityApplication.class, args);
 	}

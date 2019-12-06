@@ -1,4 +1,4 @@
-package com.parcom.security.security;
+package com.parcom.security.auth;
 
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
