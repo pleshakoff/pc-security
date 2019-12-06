@@ -1,5 +1,7 @@
 package com.parcom.security.auth;
 
+import com.parcom.security_client.TokenUtils;
+import com.parcom.security_client.UserDetailsPC;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

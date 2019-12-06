@@ -1,6 +1,5 @@
 package com.parcom.security.auth;
 
-import com.parcom.security.model.user.TokenResource;
 import com.parcom.security.model.user.User;
 import com.parcom.security.auth.dto.UserAuthDto;
 import com.parcom.security.auth.dto.UserRegisterDto;

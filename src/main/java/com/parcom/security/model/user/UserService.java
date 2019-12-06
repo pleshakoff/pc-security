@@ -1,6 +1,6 @@
 package com.parcom.security.model.user;
 
-import com.parcom.security.auth.UserUtils;
+import com.parcom.security_client.UserUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

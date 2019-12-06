@@ -1,4 +1,4 @@
-package com.parcom.security.model.user;
+package com.parcom.security.auth;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
