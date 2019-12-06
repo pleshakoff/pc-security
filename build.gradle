@@ -16,9 +16,7 @@ configurations {
 repositories {
 	mavenCentral()
     maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
-	flatDir {
-		dirs 'libs'
-	}
+	maven { url 'https://mymavenrepo.com/repo/auxKHqIZUbdZi9XRJzj0/'}
 	
 }
 
