@@ -1,7 +1,8 @@
-package com.parcom.security.auth;
+package com.parcom.security.register;
 
+import com.parcom.security.auth.TokenResource;
+import com.parcom.security.auth.UserAuthDto;
 import com.parcom.security.model.user.User;
-import com.parcom.security.register.UserRegisterDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -17,25 +18,23 @@ import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping(value = "/auth", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE},produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-@Api(tags="Authentication")
+@RequestMapping(value = "/register", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE},produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+@Api(tags="Registration")
 @RequiredArgsConstructor
-public class AuthController {
+public class RegisterController {
 
-    private final AuthService authService;
+    private final RegisterService registerService;
 
 
-    @PostMapping(value = "/login")
-    @ApiOperation("Get user session token")
-    public TokenResource authenticate(@Valid @RequestBody UserAuthDto userAuthDTO,
-                                      BindingResult bindingResult) throws BindException {
+    @PostMapping(value = "/register/")
+    @ApiOperation("Registration")
+    public User registerMember(@Valid @RequestBody UserRegisterDto registerDto,
+                               BindingResult bindingResult) throws BindException {
         if (bindingResult.hasErrors()) {
             throw new BindException(bindingResult);
         }
-        return authService.authenticate(userAuthDTO);
+        return registerService.register(registerDto);
     }
-
-
 
 
 
