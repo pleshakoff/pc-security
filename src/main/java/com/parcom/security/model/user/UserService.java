@@ -22,10 +22,21 @@ public class UserService {
     }
 
 
-    User create(User user) {
-        if (user.getIdGroup() == null) {
+    User create(UserCreateDto userCreateDto) {
+        if (!userCreateDto.getPassword().equals(userCreateDto.getPasswordConfirm())) {
+            throw new RuntimeException("Пароль и его подтверждение должны совпадать");
+        }
+        if (userCreateDto.getIdGroup() == null) {
             throw new RuntimeException("Необходимо выбрать класс");
         }
+
+        User user = User.builder().username(userCreateDto.getEmail()).
+                                   email(userCreateDto.getEmail()).
+                                   password(passwordEncoder.encode(userCreateDto.passwordConfirm)).
+                                   role(userCreateDto.getRole()).
+                                   enabled(true).
+                                   idGroup(userCreateDto.getIdGroup()).build();
+
         return userRepository.save(user);
     }
 

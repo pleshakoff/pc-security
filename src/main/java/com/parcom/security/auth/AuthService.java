@@ -1,7 +1,5 @@
 package com.parcom.security.auth;
 
-import com.parcom.security.register.UserRegisterDto;
-import com.parcom.security.model.user.User;
 import com.parcom.security.model.user.UserRepository;
 import com.parcom.security_client.UserDetailsPC;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +14,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final PasswordEncoder passwordEncoder;
-    private final UserRepository userRepository;
     private final AuthenticationManager authenticationManager;
 
 

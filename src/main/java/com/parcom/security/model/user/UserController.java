@@ -22,12 +22,12 @@ public class UserController {
 
     @PostMapping(value = "/register")
     @ApiOperation("Registration")
-    public User registerMember(@Valid @RequestBody User user,
+    public User registerMember(@Valid @RequestBody UserCreateDto userCreateDto,
                                BindingResult bindingResult) throws BindException {
         if (bindingResult.hasErrors()) {
             throw new BindException(bindingResult);
         }
-        return userService.create(user);
+        return userService.create(userCreateDto);
     }
 
     @DeleteMapping("/{id}")
