@@ -39,7 +39,6 @@ public class UserService {
         User user = User.builder().
                                    id(userCreateDto.getId()).
                                    username(userCreateDto.getEmail()).
-                                   email(userCreateDto.getEmail()).
                                    password(passwordEncoder.encode(userCreateDto.passwordConfirm)).
                                    role(userCreateDto.getRole()).
                                    enabled(true).

@@ -18,25 +18,10 @@ import javax.persistence.*;
 public class User {
 
     @Id
-     private Long id;
+    private Long id;
 
-    @JsonIgnore
     @Column(nullable = false, unique = true)
     private String username;
-
-    @Column
-    private String firstName;
-
-    @Column
-    private String middleName;
-
-    @Column
-    private String familyName;
-
-    @Column(nullable = false, unique = true)
-    private String email;
-
-    private String phone;
 
     @JsonIgnore
     @Column(nullable = false)
