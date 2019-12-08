@@ -24,10 +24,16 @@ public class UserService {
 
     User create(UserCreateDto userCreateDto) {
         if (!userCreateDto.getPassword().equals(userCreateDto.getPasswordConfirm())) {
-            throw new RuntimeException("Пароль и его подтверждение должны совпадать");
+            throw new RuntimeException("Password and confirmation must be equal");
         }
         if (userCreateDto.getIdGroup() == null) {
-            throw new RuntimeException("Необходимо выбрать класс");
+            throw new RuntimeException("Empty group");
+        }
+
+        if (userRepository.findUserByUsername(userCreateDto.getEmail()) != null) {
+
+            throw  new RuntimeException("Email already exists");
+
         }
 
         User user = User.builder().username(userCreateDto.getEmail()).

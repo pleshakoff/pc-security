@@ -5,12 +5,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
+import org.springframework.security.web.authentication.session.SessionAuthenticationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
+import javax.persistence.EntityNotFoundException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -43,17 +47,32 @@ public class GlobalDefaultExceptionHandler {
         return result;
     }
 
+
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ExceptionHandler(value = SessionAuthenticationException.class)
+    public ExceptionResource handleAuthException(HttpServletRequest request, Exception ex, HttpServletResponse response) {
+        ExceptionResource result = getExceptionResource(request, ex, getMessageForRootException(ex));
+        response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+        return result;
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(value = EntityNotFoundException.class)
+    public ExceptionResource handleNotFoundException(HttpServletRequest request, Exception ex, HttpServletResponse response) {
+        ExceptionResource result = getExceptionResource(request, ex, getMessageForRootException(ex));
+        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        return result;
+    }
+
+
     @ExceptionHandler(value = Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ExceptionResource handleAllException(HttpServletRequest request, Exception ex, HttpServletResponse response) {
         ExceptionResource result = getExceptionResource(request, ex, getMessageForRootException(ex));
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        if (((ex.getClass() == AccessDeniedException.class) ||
-                ((ex.getClass() == BadCredentialsException.class))) ||
-                ((ex.getClass() == InternalAuthenticationServiceException.class))) {
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        }
         return result;
     }
+
 
     private String getMessageForRootException(Exception ex) {
         if (ex.getMessage() == null) {

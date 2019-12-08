@@ -12,7 +12,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ExceptionResource {
+public class ExceptionResource extends RuntimeException
+{
 
     private String type = "exception";
     private String url;
