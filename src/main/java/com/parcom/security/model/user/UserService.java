@@ -36,12 +36,15 @@ public class UserService {
 
         }
 
-        User user = User.builder().username(userCreateDto.getEmail()).
+        User user = User.builder().
+                                   id(userCreateDto.getId()).
+                                   username(userCreateDto.getEmail()).
                                    email(userCreateDto.getEmail()).
                                    password(passwordEncoder.encode(userCreateDto.passwordConfirm)).
                                    role(userCreateDto.getRole()).
                                    enabled(true).
-                                   idGroup(userCreateDto.getIdGroup()).build();
+                                   idGroup(userCreateDto.getIdGroup()).
+                                   build();
 
         return userRepository.save(user);
     }
