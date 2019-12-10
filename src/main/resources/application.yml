@@ -6,7 +6,7 @@ spring:
   hateoas:
     use-hal-as-default-json-media-type: false
   datasource:
-    url: jdbc:postgresql://postgres:5433/postgres
+    url: jdbc:postgresql://pc-security-pg:5433/postgres
     username: postgres
     password: parcom
     platform: postgres
