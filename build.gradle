@@ -33,7 +33,7 @@ dependencies {
 	implementation  'io.springfox:springfox-data-rest:3.0.0-SNAPSHOT'
 
 
-	implementation 'com.parcom:pc-security-client-starter:1.2'
+	implementation 'com.parcom:pc-security-client-starter:1.6'
 
 	
 	compileOnly 'org.projectlombok:lombok'
