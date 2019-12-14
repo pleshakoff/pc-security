@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/users", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE},produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-//@Api(tags="Users")
+@Api(tags="Users")
 @RequiredArgsConstructor
 public class UserController {
 
@@ -21,7 +21,7 @@ public class UserController {
 
 
     @PostMapping(value = "/register")
-    @ApiOperation("Registration")
+    @ApiOperation("DON'T CALL THIS METHOD!! Use /add/ controller in Classroom service")
     public User registerMember(@Valid @RequestBody UserCreateDto userCreateDto,
                                BindingResult bindingResult) throws BindException {
         if (bindingResult.hasErrors()) {
