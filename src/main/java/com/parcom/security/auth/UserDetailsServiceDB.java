@@ -30,13 +30,16 @@ public class UserDetailsServiceDB implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
        User user =repo.findUserByUsername(username);
        if (user !=null) {
-
-           Set<GrantedAuthority> authorities = new HashSet<>();
-           authorities.add(new SimpleGrantedAuthority(user.getRole()));
-           return new UserDetailsPC(user.getUsername(),user.getPassword(),user.getId(),authorities,user.isEnabled(),user.getIdGroup(),user.getIdStudent());
+           return buildUserDetails(user);
        }
        else
          throw  new BadCredentialsException(messageSource.getMessage("AbstractUserDetailsAuthenticationProvider.badCredentials", null,"Bad credentials" ,LocaleContextHolder.getLocale()));
+    }
+
+    static UserDetails buildUserDetails(User user) {
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new SimpleGrantedAuthority(user.getRole()));
+        return new UserDetailsPC(user.getUsername(),user.getPassword(),user.getId(),authorities,user.isEnabled(),user.getIdGroup(),user.getIdStudent());
     }
 
 

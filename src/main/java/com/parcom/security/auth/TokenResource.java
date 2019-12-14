@@ -9,10 +9,9 @@ import lombok.Getter;
 public class TokenResource
 {
 
+
 	private final String token;
 
-	@JsonIgnore
-	private final Long id;
 
 
 }

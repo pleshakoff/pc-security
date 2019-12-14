@@ -33,7 +33,9 @@ dependencies {
 
 
 	implementation 'com.github.pleshakoff:pc-security-client-starter:1.8'
-	
+	implementation 'com.github.pleshakoff:pc-rest-tempalate-starter:1.0'
+
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
 

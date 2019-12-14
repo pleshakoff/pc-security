@@ -48,16 +48,16 @@ public class GlobalDefaultExceptionHandler {
     }
 
 
-    @ResponseStatus(HttpStatus.FORBIDDEN)
-    @ExceptionHandler(value = SessionAuthenticationException.class)
+   // @ResponseStatus(HttpStatus.FORBIDDEN)
+  //  @ExceptionHandler(value = SessionAuthenticationException.class)
     public ExceptionResource handleAuthException(HttpServletRequest request, Exception ex, HttpServletResponse response) {
         ExceptionResource result = getExceptionResource(request, ex, getMessageForRootException(ex));
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         return result;
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(value = EntityNotFoundException.class)
+   // @ResponseStatus(HttpStatus.NOT_FOUND)
+   // @ExceptionHandler(value = EntityNotFoundException.class)
     public ExceptionResource handleNotFoundException(HttpServletRequest request, Exception ex, HttpServletResponse response) {
         ExceptionResource result = getExceptionResource(request, ex, getMessageForRootException(ex));
         response.setStatus(HttpServletResponse.SC_NOT_FOUND);

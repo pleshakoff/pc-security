@@ -1,6 +1,12 @@
 server:
   port : 8081
 
+parcom:
+  services:
+    classroom:
+      host: pc-classroom
+      port: 8080
+
 spring:
   application.name: pc-security
   hateoas:
