@@ -17,7 +17,7 @@ public class TokenCreate extends TokenUtils {
 		Date getExpirationDate(Date now);
 	}
 
-	private static final long DEFAULT_TOKEN_DURATION = 365L;
+	private static final long DEFAULT_TOKEN_DURATION = 30L;
 
 
 	static String createToken(UserDetailsPC userDetails)
