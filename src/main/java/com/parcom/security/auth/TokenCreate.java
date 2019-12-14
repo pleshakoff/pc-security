@@ -17,7 +17,7 @@ public class TokenCreate extends TokenUtils {
 		Date getExpirationDate(Date now);
 	}
 
-	private static final long DEFAULT_TOKEN_DURATION = 30L;
+	private static final long DEFAULT_TOKEN_DURATION = 365L;
 
 
 	static String createToken(UserDetailsPC userDetails)
@@ -36,6 +36,7 @@ public class TokenCreate extends TokenUtils {
 		claims.put(JWT_USER, userDetails.getUsername());
 		claims.put(JWT_ID_USER, userDetails.getId());
 		claims.put(JWT_ID_GROUP, userDetails.getIdGroup());
+		claims.put(JWT_ID_STUDENT, userDetails.getIdStudent());
 		claims.put(JWT_AUTHORITIES, userDetails.getAuthoritiesStr());
 
 		return Jwts.builder()

@@ -30,4 +30,7 @@ public class UserCreateDto {
 
     @NotNull
     private final Long idGroup;
+
+    private final Long idStudent;
+
 }

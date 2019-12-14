@@ -43,6 +43,7 @@ public class UserService {
                                    role(userCreateDto.getRole()).
                                    enabled(true).
                                    idGroup(userCreateDto.getIdGroup()).
+                                   idStudent(userCreateDto.getIdStudent()).
                                    build();
 
         return userRepository.save(user);

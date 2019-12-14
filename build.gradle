@@ -16,8 +16,7 @@ configurations {
 repositories {
 	mavenCentral() 
     maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
-	maven { url 'https://mymavenrepo.com/repo/auxKHqIZUbdZi9XRJzj0/'}
-	
+	maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -33,8 +32,7 @@ dependencies {
 	implementation  'io.springfox:springfox-data-rest:3.0.0-SNAPSHOT'
 
 
-	implementation 'com.parcom:pc-security-client-starter:1.6'
-
+	implementation 'com.github.pleshakoff:pc-security-client-starter:1.8'
 	
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'

@@ -33,7 +33,7 @@ public class UserDetailsServiceDB implements UserDetailsService {
 
            Set<GrantedAuthority> authorities = new HashSet<>();
            authorities.add(new SimpleGrantedAuthority(user.getRole()));
-           return new UserDetailsPC(user.getUsername(),user.getPassword(),user.getId(),authorities,user.isEnabled(),user.getIdGroup());
+           return new UserDetailsPC(user.getUsername(),user.getPassword(),user.getId(),authorities,user.isEnabled(),user.getIdGroup(),user.getIdStudent());
        }
        else
          throw  new BadCredentialsException(messageSource.getMessage("AbstractUserDetailsAuthenticationProvider.badCredentials", null,"Bad credentials" ,LocaleContextHolder.getLocale()));

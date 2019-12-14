@@ -36,6 +36,8 @@ public class User {
     @Column(nullable = false)
     private Long idGroup;
 
+    @Column
+    private Long idStudent;
 
 
 }
