@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -73,9 +74,12 @@ public class UserService {
     }
 
 
-    @Secured({"ROLE_ADMIN"})
+
     void delete(Long id)
     {
+        if ((UserUtils.getRole().equals(UserUtils.ROLE_PARENT))&&!UserUtils.getIdUser().equals(id))
+            throw new AccessDeniedException("User update forbidden");
+
         userRepository.deleteById(id); ;
     }
 

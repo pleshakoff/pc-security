@@ -1,5 +1,6 @@
 package com.parcom.security.model.user;
 
+import com.parcom.security_client.Checksum;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,7 @@ import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping(value = "/users", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE},produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+@RequestMapping(value = "/users", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 @Api(tags="Users")
 @RequiredArgsConstructor
 public class UserController {
@@ -23,19 +24,23 @@ public class UserController {
     @PostMapping(value = "/register")
     @ApiOperation("Registration")
     public User registerMember(@Valid @RequestBody UserCreateDto userCreateDto,
-                               BindingResult bindingResult) throws BindException {
+                                @RequestHeader(required = false) String checksum,
+                               BindingResult bindingResult ) throws BindException {
         if (bindingResult.hasErrors()) {
             throw new BindException(bindingResult);
         }
+        Checksum.validateCheckSum(checksum,userCreateDto.getId());
         return userService.create(userCreateDto);
     }
 
 
-
     @DeleteMapping("/{id}")
     @ApiOperation(value = "Delete student")
-    public void delete(@PathVariable Long id)
+    public void delete(@PathVariable Long id,
+                       @RequestHeader(required = false) String checksum)
     {
+        Checksum.validateCheckSum(checksum,id);
+
         userService.delete(id);
     }
 

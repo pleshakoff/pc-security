@@ -33,7 +33,7 @@ public class AuthController {
     }
 
     @PutMapping(value = "/context")
-    @ApiOperation("Set for the user another group or student")
+    @ApiOperation("Set another group or student for the user")
     public TokenResource setContext(@Valid @RequestBody ContextDto contextDto,
                            BindingResult bindingResult) throws BindException {
         if (bindingResult.hasErrors()) {
