@@ -1,6 +1,7 @@
 package com.parcom.security.model.user;
 
 import com.parcom.exceptions.ForbiddenParcomException;
+import com.parcom.exceptions.ParcomException;
 import com.parcom.rest_template.RestTemplateUtils;
 import com.parcom.security.auth.TokenResource;
 import com.parcom.security_client.UserUtils;
@@ -49,15 +50,15 @@ public class UserService {
 
     User create(UserCreateDto userCreateDto) {
         if (!userCreateDto.getPassword().equals(userCreateDto.getPasswordConfirm())) {
-            throw new RuntimeException("user.password_confirm_not_equal");
+            throw new ParcomException("user.password_confirm_not_equal");
         }
         if (userCreateDto.getIdGroup() == null) {
-            throw new RuntimeException("group.can_not_be_null");
+            throw new ParcomException("group.can_not_be_null");
         }
 
         if (userRepository.findUserByUsername(userCreateDto.getEmail()) != null) {
 
-            throw  new RuntimeException("user.duplicate_email");
+            throw  new ParcomException("user.duplicate_email");
 
         }
 
