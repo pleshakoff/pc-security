@@ -1,5 +1,6 @@
 package com.parcom.security.model.user;
 
+import com.parcom.exceptions.ForbiddenParcomException;
 import com.parcom.rest_template.RestTemplateUtils;
 import com.parcom.security.auth.TokenResource;
 import com.parcom.security_client.UserUtils;
@@ -48,15 +49,15 @@ public class UserService {
 
     User create(UserCreateDto userCreateDto) {
         if (!userCreateDto.getPassword().equals(userCreateDto.getPasswordConfirm())) {
-            throw new RuntimeException("Password and confirmation must be equal");
+            throw new RuntimeException("user.password_confirm_not_equal");
         }
         if (userCreateDto.getIdGroup() == null) {
-            throw new RuntimeException("Empty group");
+            throw new RuntimeException("group.can_not_be_null");
         }
 
         if (userRepository.findUserByUsername(userCreateDto.getEmail()) != null) {
 
-            throw  new RuntimeException("Email already exists");
+            throw  new RuntimeException("user.duplicate_email");
 
         }
 
@@ -78,7 +79,7 @@ public class UserService {
     void delete(Long id)
     {
         if ((UserUtils.getRole().equals(UserUtils.ROLE_PARENT))&&!UserUtils.getIdUser().equals(id))
-            throw new AccessDeniedException("User update forbidden");
+            throw new ForbiddenParcomException();
 
         userRepository.deleteById(id); ;
     }
@@ -110,7 +111,7 @@ public class UserService {
         if (groupResponseEntity.getStatusCode()== HttpStatus.OK) {
             Group[] groups = groupResponseEntity.getBody();
             if (groups == null|| Arrays.stream(groups).map(Group::getId).noneMatch(idGroup::equals)) {
-                throw new EntityNotFoundException("You can't choose this group");
+                throw new EntityNotFoundException("group.can_not_be_chosen");
             }
         }
         else
@@ -133,7 +134,7 @@ public class UserService {
         if (groupResponseEntity.getStatusCode()== HttpStatus.OK) {
             Student[] students = groupResponseEntity.getBody();
             if (students == null||Arrays.stream(students).map(Student::getId).noneMatch(idStudent::equals)) {
-                throw new EntityNotFoundException("You can't choose this student");
+                throw new EntityNotFoundException("student.can_not_be_chosen");
             }
         }
         else

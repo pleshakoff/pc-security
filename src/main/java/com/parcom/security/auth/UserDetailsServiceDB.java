@@ -33,7 +33,7 @@ public class UserDetailsServiceDB implements UserDetailsService {
            return buildUserDetails(user);
        }
        else
-         throw  new BadCredentialsException(messageSource.getMessage("AbstractUserDetailsAuthenticationProvider.badCredentials", null,"Bad credentials" ,LocaleContextHolder.getLocale()));
+         throw  new BadCredentialsException(messageSource.getMessage("user.bad_credentials", null,"Bad credentials" ,LocaleContextHolder.getLocale()));
     }
 
     static UserDetails buildUserDetails(User user) {
