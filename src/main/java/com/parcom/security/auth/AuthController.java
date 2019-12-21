@@ -1,7 +1,5 @@
 package com.parcom.security.auth;
 
-import com.parcom.security.model.user.User;
-import com.parcom.security.model.user.UserCreateDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
