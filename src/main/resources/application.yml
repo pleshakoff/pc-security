@@ -9,7 +9,7 @@ parcom:
   services:
     -
       name: classroom
-      host: pc-security
+      host: pc-classroom
       port: 8080
       version: v1
 
