@@ -3,7 +3,9 @@ package com.parcom.security.auth;
 
 import com.parcom.security.model.user.User;
 import com.parcom.security.model.user.UserService;
+import com.parcom.security_client.UserUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -11,6 +13,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
@@ -34,8 +38,6 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public TokenResource setContext(ContextDto contextDto) {
         User user = userService.setContext(contextDto.getIdGroup(), contextDto.getIdStudent());
-
-
         String token = TokenCreate.createToken(UserDetailsServiceDB.buildUserDetails(user));
         return new TokenResource(token);
 

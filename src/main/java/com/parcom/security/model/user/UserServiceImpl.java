@@ -14,6 +14,7 @@ import org.springframework.util.MultiValueMap;
 
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
+import javax.validation.constraints.NotNull;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -35,8 +36,8 @@ class UserServiceImpl implements UserService {
 
 
     @Override
-    public User create(UserCreateDto userCreateDto) {
-        log.info("Create user");
+    public User create(@NotNull UserCreateDto userCreateDto) {
+        log.info("Create user account {}",userCreateDto.getEmail());
         if (!userCreateDto.getPassword().equals(userCreateDto.getPasswordConfirm())) {
             throw new ParcomException("user.password_confirm_not_equal");
         }
