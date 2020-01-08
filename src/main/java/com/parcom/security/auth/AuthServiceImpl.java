@@ -21,8 +21,6 @@ public class AuthServiceImpl implements AuthService {
 
 
     private final UserService userService;
-
-
     private final AuthenticationManager authenticationManager;
 
 
