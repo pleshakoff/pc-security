@@ -12,7 +12,7 @@ import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping(value = "/auth", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE},produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+@RequestMapping(value = "/auth", consumes = {MediaType.APPLICATION_JSON_VALUE},produces = {MediaType.APPLICATION_JSON_VALUE})
 @Api(tags="Authentication")
 @RequiredArgsConstructor
 public class AuthController {

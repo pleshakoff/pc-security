@@ -21,10 +21,9 @@ class AuthServiceImplTest {
 
     private static final String PASSWORD = "password";
     private static final String USERNAME = "username";
-    public static final long ID_GROUP = 1l;
-    public static final long ID_STUDENT = 1L;
 
-    @Autowired
+
+   @Autowired
    AuthService authService;
 
    @Autowired
