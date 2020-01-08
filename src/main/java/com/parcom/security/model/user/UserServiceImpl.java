@@ -25,9 +25,10 @@ import java.util.Objects;
 class UserServiceImpl implements UserService {
 
     private static final String SERVICE_NAME_CLASSROOM = "classroom";
+
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private  final Network network;
+    private final Network network;
 
 
     private User getCurrentUser(){
@@ -46,9 +47,7 @@ class UserServiceImpl implements UserService {
         }
 
         if (userRepository.findUserByUsername(userCreateDto.getEmail()) != null) {
-
             throw  new ParcomException("user.duplicate_email");
-
         }
 
         User user = User.builder().
