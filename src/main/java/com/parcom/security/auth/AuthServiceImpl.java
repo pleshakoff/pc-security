@@ -3,6 +3,7 @@ package com.parcom.security.auth;
 
 import com.parcom.security.model.user.User;
 import com.parcom.security.model.user.UserService;
+import com.parcom.security_client.TokenCreate;
 import com.parcom.security_client.UserUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
