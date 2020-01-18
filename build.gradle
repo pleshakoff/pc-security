@@ -30,7 +30,7 @@ dependencies {
 
 
 
-	implementation 'com.github.pleshakoff:pc-security-client-starter:1.1.6'
+	implementation 'com.github.pleshakoff:pc-security-client-starter:1.1.9'
 	implementation 'com.github.pleshakoff:pc-network-starter:1.0.1'
 	implementation 'com.github.pleshakoff:pc-i18n-starter:1.1.2'
 	implementation 'com.github.pleshakoff:pc-exceptions-starter:1.1.5'

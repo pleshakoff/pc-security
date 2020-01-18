@@ -4,6 +4,12 @@ server:
     context-path: /api/${parcom.api.version}
 
 parcom:
+  security:
+    permitted:
+      -
+        /auth/login
+      -
+        /users/register
   api:
     version: v1
   services:
