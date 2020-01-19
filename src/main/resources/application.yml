@@ -45,3 +45,11 @@ spring:
   data:
     rest:
       detection-strategy: annotated
+
+management:
+  endpoints:
+    metrics:
+      enabled: true
+    web:
+      exposure:
+        include: "health,prometheus"
